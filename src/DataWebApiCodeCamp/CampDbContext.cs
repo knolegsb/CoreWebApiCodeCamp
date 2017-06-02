@@ -49,7 +49,7 @@ namespace DataWebApiCodeCamp
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(_config["Data:ConnectionSting"]);
+            optionsBuilder.UseSqlServer(_config["Data:ConnectionString"]);
         }
     }
 }

@@ -44,6 +44,11 @@ namespace DataWebApiCodeCamp
                 var userResult = await _userManager.CreateAsync(user, "Password!");
                 var roleResult = await _userManager.AddToRoleAsync(user, "Admin");
                 var claimResult = await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("SuperUser", "True"));
+
+                if (!userResult.Succeeded || !roleResult.Succeeded || !claimResult.Succeeded)
+                {
+                    throw new InvalidOperationException("Failed to build user and roles");
+                }
             }
         }
     }
